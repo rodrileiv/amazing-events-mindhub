@@ -9,33 +9,44 @@
     <link rel="stylesheet" href="style.css">
     <title>Amazing Events</title>
 </head>
-<body>
+<body class="bg-secondary">
     <main>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- NAV -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
+                
+                <!-- ICONO -->
                 <a class="navbar-brand" href="./index.html"><img src="./images/Logo Amazing Events.png" alt="logo"></a>
-            <div class="navbar justify-content-end">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="./upcoming-events.html">Upcoming Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./past-events.html">Past Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./stats.html">Stats</a>
-                    </li>
-                </ul>
+
+                <!-- BOTON MENU -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- MENU COLAPSABLE -->
+                <div id="menu" class="collapse navbar-collapse" >
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-light active" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./upcoming-events.html">Upcoming Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./past-events.html">Past Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./stats.html">Stats</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
+        <!-- SLIDER -->
         <div class="container-slider">
             <div>
                 <a href="./past-events.html" class="previous-round"><img src="./images/prev-button.png" alt="prev page"></a>
@@ -48,6 +59,70 @@
             </div>
         </div>
 
+        <!-- FORM -->
+        <form class="form-horizontal" >
+            <div class="form-group">
+                <label class="col-lg-4 control-label">Nombre: </label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name="nombre" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-4 control-label">Email: </label>
+                <div class="col-lg-4">
+                    <input type="email" class="form-control" name="email" />
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <label class="col-lg-4 control-label">Mensagge: </label>
+                <div class="col-lg-4">
+                    <textarea class="form-control" id="mensagge" rows="5"></textarea>
+                </div>
+            </div>
+        
+            <div class="form-group">
+            <div class="">
+                <button type="submit" class="btn btn-success left">Submit</button>
+            </div>
+            </div>
+        
+        </form>
     </main>
-</body>
+    
+    <!-- FOOTER -->
+    <footer class="bg-light text-center text-white">
+        <div class="container p-4 pb-0 mt-5">
+            <section class="mb-4">
+            <!-- FACEBOOK -->
+            <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #3b5998;"
+                href="https://www.facebook.com" target="_blank"
+                role="button"
+                ><i class="fab fa-facebook"><img src="./images/facebook.png" alt="facebook" width="50"></i
+            ></a>
+            <!-- INSTAGRAM -->
+            <a
+            class="btn btn-primary btn-floating m-1"
+            style="background-color: #E1306C;"
+            href="https://www.instagram.com" target="_blank"
+            role="button"
+            ><i class="fab fa-instagram"><img src="./images/instagram.png" alt="instagram" width="50"></i
+            ></a>
+            <!-- WHASTAPP -->
+            <a
+                class="btn btn-primary btn-floating m-1"
+                style="background-color: #25D366;"
+                href="https://www.whatsapp.com" target="_blank"
+                role="button"
+                ><i class="fab fa-whatsapp"><img src="./images/whatsapp.png" alt="whatsapp" width="50"></i
+            ></a>
+            </section>
+        </div>
+
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            <h3>COHORT</h3>
+        </div>
+    </footer>
 </html>
