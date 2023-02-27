@@ -104,12 +104,6 @@ td {
     background-color: white;
 }
 
-.card-title {
-    font-size: 4rem;
-}
-.card-text {
-    font-size: 2rem;
-}
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
     .contenedor-categorys {
@@ -154,3 +148,55 @@ td {
         padding-left: 10rem;
     }    
 }
+
+/* .....CARDS..... */
+
+#cards-home{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#cards-home>div{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    margin: 25px;
+    border: 4px solid black;
+    background-color: white;
+}
+
+#cards-home a{
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 7px;  
+}
+#cards-home a:hover{
+    background-color: #a72727;
+    color: white;
+    font-weight: bold;
+}
+
+#cards-home h3 {
+    font-size: 25px;
+}
+
+#cards-home h3, p{
+    text-align: center;
+}
+
+#cards-home div img{
+    width: 100% ;
+    height: 120px;
+}
+
+.price{
+    margin: 3px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .....FIN CARDS..... */
