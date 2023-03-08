@@ -10,42 +10,20 @@
     <title>Amazing Events</title>
 </head>
 <body class="bg-secondary">
-    <main>
-        <!-- NAV -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                
-                <!-- ICONO -->
-                <a class="navbar-brand" href="./index.html"><img src="./images/Logo Amazing Events.png" alt="logo"></a>
-
-                <!-- BOTON MENU -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- MENU COLAPSABLE -->
-                <div id="menu" class="collapse navbar-collapse" >
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link text-light active" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="./upcoming-events.html">Upcoming Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="./past-events.html">Past Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="./contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="./stats.html">Stats</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <header>
+        <nav>
+            <img src="./images/Logo Amazing Events.png" alt="logo-amazing" height="45" id="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="./upcoming-events.html">Upcoming Events</a></li>
+                <li><a href="./past-events.html">Past Events</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./stats.html">Stats</a></li>
+            </ul>
         </nav>
+    </header>
 
+    <main>
         <!-- SLIDER -->
         <div class="container-slider">
             <div>
@@ -60,37 +38,17 @@
         </div>
 
         <!-- CATEGORY -->
-        <div class="contenedor-categorys">
-            <div class="check">   
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Category</label>
+        <div class="div-category">
+            <form class="form-category" id="form-category">
+                <div>
+                    <label id="searcher">
+                        <input type="search" name="search" id="search" placeholder="Search...">
+                        <input type="submit" value="Search">
+                    </label>
                 </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">Category</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Category</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option4">
-                    <label class="form-check-label" for="inlineCheckbox1">Category</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option5">
-                    <label class="form-check-label" for="inlineCheckbox2">Category</label>
-                </div>
-            </div>
-            <!-- SEARCH -->
-            <div class="search">
-                <form class="example" action="#" style="margin:auto;max-width:300px">
-                    <input type="text" placeholder="Search..." name="buscar">
-                    <button type="submit"><i class="boton-buscar"> <img src="./images/busqueda.png" alt="lupa" width="35" height="40"></i></button>
-                </form>
-            </div>
+            </form>
         </div>
+
 
         <!-- CARDS -->
         <div id="cards-home">           
@@ -136,3 +94,4 @@
     
     <script src="./scripts/data.js""></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/details.js"></script>
