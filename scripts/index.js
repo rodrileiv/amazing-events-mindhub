@@ -90,3 +90,5 @@ function check() {
         createCard(data.events, "#cards-home")
     }
 };
+
+/* FILTRO DE BUSQUEDA NO LOGRE HACERLO :C */

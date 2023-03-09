@@ -4,9 +4,9 @@ let param = new URLSearchParams(query)
 
 let id = param.get("id")
 
-let events = data.events
+let events2 = data.events
 
-let eventDetail = events.find(eventDetail => eventDetail._id == id)
+let eventDetail = events2.find(eventDetail => eventDetail._id == id)
 
 let buildDetails = document.querySelector(".cards-details")
 
