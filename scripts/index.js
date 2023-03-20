@@ -89,6 +89,6 @@ function check() {
     } else {
         createCard(data.events, "#cards-home")
     }
-};
+}; 
 
 /* FILTRO DE BUSQUEDA NO LOGRE HACERLO :C */
