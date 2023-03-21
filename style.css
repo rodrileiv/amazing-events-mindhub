@@ -24,6 +24,11 @@ li a{
     text-decoration: none; 
 }
 
+li a:hover {
+    box-shadow: 0 4px 16px #000000;
+    transition: all 0.2s ease;
+}
+
 #logo{
     position: absolute;
     margin: 15px 15px;
@@ -60,15 +65,31 @@ h2 {
     height: 50px;
 }
 
+.boton{
+    color:white !important;
+    font-size: 15px;
+    font-weight: 380;
+    padding: 0.5em 1.2em;
+    background: black;
+    border: 1px solid;
+    position: relative;
+}
+
+.boton:hover{
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 4px 16px #D90368;
+    transition: all 0.2s ease;
+}
 
 /* -----TABLE----- */
 
 table{
     background-color: white;
+    margin-bottom: 2rem;
 }
-.tg {
+
+.tg tr {
     border-collapse: collapse;
-    border-spacing: 0;
 }
 
 .tg td {
@@ -80,6 +101,7 @@ table{
     overflow: hidden;
     padding: 10px 5px;
     word-break: normal;
+    text-align: center;
 }
 
 .tg th {
@@ -93,13 +115,14 @@ table{
     padding: 10px 5px;
     word-break: normal;
     align-items: center;
+    text-align: center;
 }
 
 .tg .gray {
-    background-color: #c0c0c0;
+    background-color: #c41b69;
     border-color: inherit;
-    font-size: 18px;
-    text-align: left;
+    font-size: 25px;
+    text-align: center;
     vertical-align: top;
     width: 60rem;
     align-items: center;
@@ -107,14 +130,8 @@ table{
 
 .tg .blank{
     border-color: inherit;
-    text-align: left;
+    text-align: center;
     vertical-align: top; 
-    align-items: center;
-}
-.table{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
     align-items: center;
 }
 
@@ -186,7 +203,7 @@ table{
 }
 
 .btn:hover{
-    box-shadow: 0 4px 16px #D90368;
+    box-shadow: 0 4px 16px #850c45;
     transition: all 0.2s ease;
 }
 

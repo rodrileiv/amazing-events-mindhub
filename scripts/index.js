@@ -54,12 +54,13 @@ function createCard( card ) { //crea las cartas
     div.className = 'card border-primary'
     div.textContent = events.name
     div.classList.add(`card`);
-    div.innerHTML = `<img src="${card.image}" class="card-img-top" alt="Image of ${card.name}" />
+    div.innerHTML = `
+    <img src="${card.image}" class="card-img-top" alt="Image of ${card.name}" />
     <div class="card-body d-flex flex-column align-items-center">
-    <h3 class="card-title">${card.name}</h3>
-    <p class="card-text"> ${card.description}</p>
-    <h5 class="mt-auto">Price:$${card.price} </h5>
-    <a href="./details.html?id=${card._id}" class="btn btn-dark align-self-stetch" role="button">See More...</a>
+        <h3 class="card-title">${card.name}</h3>
+        <p class="card-text"> ${card.description}</p>
+        <h5 class="mt-auto">Price:$${card.price} </h5>
+        <a href="./details.html?id=${card._id}" class="btn btn-dark align-self-stetch" role="button">See More...</a>
     </div>`
     return div
 }

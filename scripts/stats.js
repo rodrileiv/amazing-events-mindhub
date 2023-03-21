@@ -79,9 +79,9 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
     function printEventUp(container, categoryArray){
         let contenedor1 = `
             <tr>
-                <td class="fw-bold">Categories</td>
-                <td class="fw-bold">Estimated</td>
-                <td class="fw-bold">Percentage of estimated attendance</td>
+                <td class="fw-bold fs-6">Categories</td>
+                <td class="fw-bold fs-6">Estimated</td>
+                <td class="fw-bold fs-6">Percentage of estimated attendance</td>
             </tr>`
         let template = '';
     categoryArray.forEach((value, i) =>{
@@ -89,7 +89,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
             <tr>
                 <td class="blank">${categoryArray[i].name}</td>
                 <td class="blank">$${categoryArray[i].revenues}</td>
-                <td class="blank">${categoryArray[i].assistance || categoryArray[i].estimate}% of assistance</td>
+                <td class="blank">${categoryArray[i].assistance || categoryArray[i].estimate}%</td>
             </tr> `
     })
     container.innerHTML= contenedor1 + template
@@ -99,9 +99,9 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
     function printEventPast(container, categoryArray){
         let contenedor = `
             <tr>
-                <td class="fw-bold">Categories</td>
-                <td class="fw-bold">Revenue</td>
-                <td class="fw-bold">Percentage of attendance</td>
+                <td class="fw-bold fs-6">Categories</td>
+                <td class="fw-bold fs-6">Revenue</td>
+                <td class="fw-bold fs-6">Percentage of attendance</td>
             </tr>`
         let template = '';
     categoryArray.forEach((value, i) =>{
@@ -109,7 +109,7 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
             <tr>
                 <td class="blank">${categoryArray[i].name}</td>
                 <td class="blank">$${categoryArray[i].revenues}</td>
-                <td class="blank">${categoryArray[i].assistance || categoryArray[i].estimate}% of assistance</td>
+                <td class="blank">${categoryArray[i].assistance || categoryArray[i].estimate}%</td>
             </tr> `
     })
     container.innerHTML= contenedor + template
@@ -118,13 +118,13 @@ fetch('https://mindhub-xj03.onrender.com/api/amazing')
     function printStatistic(highAttendance, lowAttendance, highCapacity){
         return $eventsTable.innerHTML = `
         <tr>
-        <td class="fw-bold">Event with the highest percentage of attendance</td>
-        <td class="fw-bold">Event with the lowest percentage of attendance</td>
-        <td class="fw-bold">Event with larger capacity</td>
+            <td class="fw-bold fs-6">Event with the highest percentage of attendance</td>
+            <td class="fw-bold fs-6">Event with the lowest percentage of attendance</td>
+            <td class="fw-bold fs-6">Event with larger capacity</td>
         </tr>
         <tr>
-        <td class="blank">${highAttendance.name}: ${(highAttendance.assistance*100)/highAttendance.capacity}%</td>
-        <td class="blank">${lowAttendance.name}: ${(lowAttendance.assistance*100)/lowAttendance.capacity}%</td>
-        <td class="blank">${highCapacity.name}: ${highCapacity.capacity}</td>
+            <td class="blank">${highAttendance.name}: ${(highAttendance.assistance*100)/highAttendance.capacity}%</td>
+            <td class="blank">${lowAttendance.name}: ${(lowAttendance.assistance*100)/lowAttendance.capacity}%</td>
+            <td class="blank">${highCapacity.name}: ${highCapacity.capacity}</td>
         </tr>`
     } 
