@@ -1,104 +1,100 @@
-/* .....EVENTOS FUTUROS..... */
-let currentDate = data.currentDate;
-let upcomingEvents = [];
+let currentDate 
+let events 
+const $checkboxs = document.getElementById('checkboxs')
+const $contCards = document.getElementById('cont-cards')
+let fn = (card) => card.category 
+let cardCategories
+let categories
+let noRepeatCategories
+let arrayNoRepeatCategories
+const searchBarFunction = document.getElementById('search')
 
-function futureDate(events){
-    for(events of events){
-        if (currentDate < events.date) {
-            upcomingEvents.push(events)
-        }
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then(response => response.json())
+    .then (response => {
+        currentDate = response.currentDate
+        events = response.events.filter(evento=>evento.date>currentDate)
+        cardCategories = events.filter(fn)
+        categories = cardCategories.map(fn)
+        noRepeatCategories = new Set(categories)
+        arrayNoRepeatCategories = Array.from(noRepeatCategories)
+        console.log(arrayNoRepeatCategories)
+        createCheckboxs(arrayNoRepeatCategories, $checkboxs)
+        printCards(events, $contCards)
+        $checkboxs.addEventListener('change', (event) =>{  //escucha si hay cambios en los checkboxs
+        printCards(filteredText(filterCards(events)), $contCards)  //si hay cambio activa las funciones para hacer las cartas dinamicas
+        })
+        //searchbar function read input
+        searchBarFunction.addEventListener("keyup", (e)=>{  
+        e.preventDefault()
+        printCards(filteredText(filterCards(events)), $contCards) //1ro filtra checkboxs, 2do searchbar y si esta bien imprime cards
+        })
+        searchBarFunction.addEventListener("submit", (e)=>{
+        e.preventDefault()
+})
+
+    })
+    .catch(error => console.log(error))
+
+function createCheckboxs(values, container){  //crea las checkboxs por cada categoria
+    let template=''
+    values.forEach(value => template += `
+    <label class="btn btn-light active">
+    <input class="form-check-input me-2" type="checkbox" value="${value}" id="flexCheckDefault2" checked autocomplete="off">${value}
+    </label>
+    `)
+    container.innerHTML = template
+}
+createCheckboxs(arrayNoRepeatCategories, $checkboxs)
+
+function createCard( card ) { //crea las cartas
+
+    let div = document.createElement('div')
+    div.className = 'card border-primary'
+    div.textContent = events.name
+    div.classList.add(`card`);
+    div.innerHTML = `<img src="${card.image}" class="card-img-top" alt="Image of ${card.name}" />
+    <div class="card-body d-flex flex-column align-items-center">
+    <h3 class="card-title">${card.name}</h3>
+    <p class="card-text"> ${card.description}</p>
+    <h5 class="mt-auto">Price:$${card.price} </h5>
+    <a href="./details.html?id=${card._id}" class="btn btn-dark align-self-stetch" role="button">See More...</a>
+    </div>`
+    return div
+}
+
+//imprime las cartas
+function printCards(events, container){  
+    container.innerHTML=''
+
+    let fragment = document.createDocumentFragment()
+    if(events.length!=0){                   //si hay una categoria seleccionada imprime las cartas
+        events.forEach(event => fragment.appendChild(createCard(event)))
+        container.appendChild(fragment)
+    }else{
+        $contCards.innerHTML= `<h2>There is no results for your search.</h2>`   //de lo contrario muestra un mensaje
     }
-return upcomingEvents;
 }
-console.log(futureDate(data.events));
+printCards(cardCategories, $contCards)
 
-/* --------------------------------------- */
-let events = data.events;
 
-let fragment = document.createDocumentFragment();
 
-function createCard(arr, contenedor) {
-    let cardsHome = document.querySelector(contenedor)
-    cardsHome.innerHTML = ""
-    for (events of arr) {
-        let title = document.createElement('h3');
-        title.className = "titleCard";
-        title.textContent = events.name;
-        fragment.appendChild(title);
-
-        let priceP = document.createElement('p');
-        priceP.className = "priceP";
-        priceP.textContent = "Price: $" + events.price;
-
-        let image = document.createElement('img');
-        image.className = "imageCard";
-        image.src = events.image;
-        fragment.appendChild(image);
-
-        let viewMore = document.createElement('a');
-        viewMore.className = "viewMore";
-        viewMore.innerHTML = `
-        <a href="./details.html?id=${events._id}">View more...</a>`
-
-        let divPrice = document.createElement('div');
-        divPrice.className = "price";
-        divPrice.appendChild(priceP);
-        divPrice.appendChild(viewMore);
-
-        let paragraph = document.createElement('p');
-        paragraph.className = "pCard";
-        paragraph.textContent = events.description;
-        fragment.appendChild(paragraph);
-
-        let divContainer = document.createElement('div');
-        divContainer.className = "container-cards-home";
-        divContainer.appendChild(title);
-        divContainer.appendChild(image);
-        divContainer.appendChild(paragraph);
-        divContainer.appendChild(divPrice);
-        fragment.appendChild(divContainer);
-    };
-    cardsHome.appendChild(fragment);
-}
-createCard(upcomingEvents, "#cards-home")
-
-/* CATEGORIAS DOM */
-
-let categories = [];
-
-let category = document.getElementById("form-category")
-data.events.forEach(e => {
-    if (!categories.includes(e.category)) {
-    categories.push(e.category)
-    category.innerHTML += `
-        <div id="content-cat">
-            <label class="checkbox">
-                <input type="checkbox" name="category" id="${e.category}" value="${e.category}">
-                <span>${e.category}</span>
-            </label>
-        </div>`
-}
-});
-
-/* FILTRO CATEGORÍA */
-
-let checkButton = document.querySelectorAll("input[type='checkbox']")
-let eventsChecked = []
-
-checkButton.forEach(boton => boton.addEventListener('change', check))
-function check() {
-    eventsChecked = []
-    let select = Array.from(checkButton).filter(e => e.checked)
-    for (const event of upcomingEvents) {
-        select.forEach(input => {
-        if (event.category == input.value) {
-            eventsChecked.push(event)
-        }
-    });
-}
-    if (eventsChecked.length > 0) {
-        createCard(eventsChecked, "#cards-home")
+//filter events function 
+function filterCards(events){
+    let checked= Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(input=>input.value) //toma el valor de los checkboxes
+    if(fn.length!=0){
+        return events.filter(card => checked.includes(card.category)) //filtra segun los checkboxes marcados
     } else {
-        createCard(upcomingEvents, "#cards-home")
+        return events //si no hay nada devuelve todas las cards
     }
-};
+}
+
+//function text filter
+function filteredText(array){
+    let input_value = document.querySelector("input[type='search']").value //toma el valor de la searchbar
+    if (input_value==""){
+        return array //si no hay valor devuelve array entero
+    } else{
+        return array.filter(card=>card.name.toLowerCase().includes(input_value.toLowerCase())) //filtra segun el input del searchbar
+    }
+}

@@ -37,20 +37,20 @@
             </div>
         </div>
 
-        <!-- CATEGORY -->
-        <div class="div-category">
-            <form class="form-category" id="form-category">
-                <div>
-                    <label id="searcher">
-                        <input type="search" name="search" id="search" placeholder="Search...">
-                        <input type="submit" value="Search">
-                    </label>
-                </div>
-            </form>
-        </div>
-        
-        <!-- CARDS -->
-        <div id="cards-home">           
+        <nav class="navbar navbar-expand-lg d-flex">
+            
+            <div class="navbar d-inline-flex justify-content-evenly" id="checkboxs">
+            </div>
+
+            <div class="searchbar justify-content-end">
+                <form class="d-flex justify-content-end" role="search" id="search">
+                    <input class="form-control me-2" type="search" placeholder="Search event..." aria-label="Search" >
+                </form>
+            </div>
+
+        </nav>
+
+        <div class="all cards d-flex flex-row flex-wrap mb-3 gap-5 justify-content-center" id="cont-cards">
         </div>
 
     </main>
@@ -91,7 +91,6 @@
         </div>
     </footer>
 
-    <script src="./scripts/data.js""></script>
     <script src="./scripts/upcoming-events.js"></script>
 
 </html>

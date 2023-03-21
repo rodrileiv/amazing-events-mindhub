@@ -1,27 +1,33 @@
-let query = location.search
+let events
+let currentDate  
+let params
+let id 
+let card
 
-let param = new URLSearchParams(query)
-
-let id = param.get("id")
-
-let events2 = data.events
-
-let eventDetail = events2.find(eventDetail => eventDetail._id == id)
-
-let buildDetails = document.querySelector(".cards-details")
-
-    buildDetails.innerHTML = `<div class="details">
-        <img src="${eventDetail.image}" alt="${eventDetail.name}">
-        <div class="details-text">
-            <h3>${eventDetail.name}</h3>
-            <p>${eventDetail.description}</p>
-            <div>
-            <p>Date: ${eventDetail.date}</p>
-            <p>Category: ${eventDetail.category}</p>
-            <p>Place: ${eventDetail.place}</p>
-            <p>Capacity: ${eventDetail.capacity}</p>
-            <p>Price: $${eventDetail.price}</p>
-            </div>
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+    .then(response => response.json())
+    .then (response => {
+        currentDate = response.currentDate
+        events = response.events
+        const queryString = location.search //
+        params = new URLSearchParams(queryString)
+        id = params.get("id")
+        card = events.find(item => item._id == id)
+        const div = document.getElementById("cont-cards")
+        div.innerHTML = `<div class="card card-details">
+        <img src="${card.image}" class="card-img-details card-img-top p-3 justify-content-center" alt="Picture of ${card.name}">
+        <h5 class="card-title-details text-align-center">${card.name}</h5>
+        <div class="card-body-details">
+        <ul>
+        <li>Date: ${card.date}</li>
+        <li>Description: ${card.description}</li>
+        <li>Category: ${card.category}</li>
+        <li>Place: ${card.place}</li>
+        <li>Capacity: ${card.capacity}</li>
+        <li>Assistance: ${card.assistance || card.estimate}</li> 
+        </ul>
+        <p class="price-details fw-bold text-center text-decoration-none">Price:$ ${card.price}</p>
         </div>
-    </div>`
+        </div>`
+        })
 
